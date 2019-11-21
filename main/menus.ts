@@ -7,6 +7,7 @@ const macMenu: MenuItemConstructorOptions[] = process.platform === "darwin" ? [{
     label: app.name,
     submenu: [
         { role: 'about' },
+        { label: "设置", },
         { type: 'separator' },
         { role: 'services' },
         { type: 'separator' },
@@ -31,6 +32,11 @@ export default function menus(app: App): Menu {
                 },
                 {
                     label: "打开(&O)"
+                },
+                { type: "separator" },
+                { label: "保存(&S)" },
+                {
+                    label: "另存为..."
                 },
                 {
                     label: "退出(&Q)",
@@ -64,6 +70,25 @@ export default function menus(app: App): Menu {
                     label: "粘贴(&V)",
                     role: "paste"
                 }
+            ]
+        },
+        {
+            label: "查看(&V)",
+            submenu: [
+                { label: "暗黑模式(&D)", type: "checkbox" },
+                { type: "separator" },
+                { label: "阅读模式(&R)", type: "radio" },
+                { label: "编辑模式(&E)", type: "radio" },
+                { label: "编辑预览模式(&B)", type: "radio" },
+                { type: "separator" },
+                { label: "显示状态栏(&S)" }
+            ]
+        },
+        {
+            label: "帮助(&H)",
+            submenu: [
+                { label: "关于(&A)", role: "about" },
+                { label: "文档(&D)" }
             ]
         }
     ])

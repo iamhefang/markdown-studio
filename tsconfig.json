@@ -4,8 +4,9 @@
         "target": "es6",
         "module": "commonjs",
         "jsx": "react",
-		 "sourceMap": true
-	 },
+        "sourceMap": true,
+        "resolveJsonModule": true
+    },
     "exclude": [
         "node_modules"
     ]

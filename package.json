@@ -1,15 +1,22 @@
 {
   "name": "markdown-studio",
   "version": "1.0.0",
+  "description": "markdown 阅读编辑神器",
   "main": "index.js",
   "license": "MIT",
+  "private": false,
+  "author": {
+    "name": "hefang",
+    "email": "he@hefang.link",
+    "url": "https://hefang.link"
+  },
   "scripts": {
     "start": "electron .",
     "prestart": "tsc"
   },
   "dependencies": {
     "antd": "^3.25.2",
-    "electron": "^7.1.2",
+    "electron": "^7.1.1",
     "marked": "^0.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

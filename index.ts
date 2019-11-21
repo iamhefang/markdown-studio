@@ -9,7 +9,4 @@ app.once("ready", function () {
         show: false
     });
     window.loadURL(`file://${__dirname}/renderer/index.html`).then(() => window.show());
-    // window.once("ready-to-show", function () {
-    //     window.show();
-    // })
 });
