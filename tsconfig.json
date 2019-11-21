@@ -3,8 +3,9 @@
         "charset": "utf-8",
         "target": "es6",
         "module": "commonjs",
-        "jsx": "react"
-    },
+        "jsx": "react",
+		 "sourceMap": true
+	 },
     "exclude": [
         "node_modules"
     ]
