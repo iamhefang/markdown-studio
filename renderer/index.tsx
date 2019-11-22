@@ -3,12 +3,19 @@ import { render } from "react-dom";
 import * as pkg from "../package.json";
 import { setTitle } from "./utils/utils.js";
 
-setTitle(pkg.name);
+setTitle(pkg.displayName);
+interface MarkdownStudioProps {
 
-class MarkdownStudio extends React.Component {
-	constructor(props) {
+}
+interface MarkdownStudioState {
+
+}
+class MarkdownStudio extends React.Component<MarkdownStudioProps, MarkdownStudioState> {
+	constructor(props: MarkdownStudioProps) {
 		super(props);
-		this.state = {};
+		this.state = {
+
+		};
 	}
 	render() {
 		return (

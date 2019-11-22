@@ -1,21 +1,23 @@
 import * as Electron from "electron";
-import { app, MenuItemConstructorOptions } from "electron";
+import { app, MenuItemConstructorOptions, systemPreferences } from "electron";
+import * as pkg from "../package.json";
+import About from "./about/About";
 import Menu = Electron.Menu;
 import App = Electron.App;
 
 const macMenu: MenuItemConstructorOptions[] = process.platform === "darwin" ? [{
     label: app.name,
     submenu: [
-        { role: 'about' },
+        { role: 'about', label: `关于 ${pkg.displayName}` },
         { label: "设置", },
         { type: 'separator' },
-        { role: 'services' },
+        { role: 'services', label: "服务" },
         { type: 'separator' },
-        { role: 'hide' },
-        // { role: 'hideothers' },
-        { role: 'unhide' },
+        { role: 'hide', label: "隐藏窗口" },
+        { role: 'hideOthers', label: "隐藏其他窗口" },
+        { role: 'unhide', label: "显示窗口" },
         { type: 'separator' },
-        { role: 'quit' }
+        { role: 'quit', label: "退出" }
     ]
 }] : [];
 
@@ -26,6 +28,7 @@ export default function menus(app: App): Menu {
         ...macMenu,
         {
             label: "文件(&F)",
+            role: "fileMenu",
             submenu: [
                 {
                     label: "新建(&N)"
@@ -38,14 +41,16 @@ export default function menus(app: App): Menu {
                 {
                     label: "另存为..."
                 },
+                { type: "separator" },
                 {
-                    label: "退出(&Q)",
-                    role: "quit"
+                    label: "关闭(&C)",
+                    role: "close"
                 }
             ]
         },
         {
             label: "编辑(&E)",
+            role: "editMenu",
             submenu: [
                 {
                     label: "撤销(&U)",
@@ -74,20 +79,28 @@ export default function menus(app: App): Menu {
         },
         {
             label: "查看(&V)",
+            role: "viewMenu",
             submenu: [
-                { label: "暗黑模式(&D)", type: "checkbox" },
+                { label: "暗黑模式(&D)", type: "checkbox", checked: systemPreferences.isDarkMode() },
                 { type: "separator" },
                 { label: "阅读模式(&R)", type: "radio" },
                 { label: "编辑模式(&E)", type: "radio" },
                 { label: "编辑预览模式(&B)", type: "radio" },
                 { type: "separator" },
-                { label: "显示状态栏(&S)" }
+                { label: "显示状态栏(&S)", type: "checkbox", checked: true }
             ]
         },
         {
             label: "帮助(&H)",
+            role: "help",
             submenu: [
-                { label: "关于(&A)", role: "about" },
+                {
+                    label: "关于(&A)",
+                    role: "about",
+                    click: (menuItem, win, ev) => {
+                        About.show(win)
+                    }
+                },
                 { label: "文档(&D)" }
             ]
         }
