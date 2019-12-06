@@ -1,7 +1,7 @@
 import * as React from "react";
 import { render } from "react-dom";
 import * as pkg from "../package.json";
-import { setTitle } from "./utils/utils.js";
+import { setTitle } from "./utils/utils";
 
 setTitle(pkg.displayName);
 interface MarkdownStudioProps {
@@ -26,4 +26,4 @@ class MarkdownStudio extends React.Component<MarkdownStudioProps, MarkdownStudio
 
 const root = document.createElement("div") as HTMLDivElement;
 root.id = "root";
-render(<MarkdownStudio />, root)
+render(<MarkdownStudio />, root);

@@ -16,6 +16,7 @@
     "prestart": "tsc"
   },
   "dependencies": {
+    "@ant-design/dark-theme": "^1.0.3",
     "antd": "^3.25.2",
     "electron": "7.1.1",
     "marked": "^0.7.0",
